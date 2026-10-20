@@ -1,5 +1,7 @@
 // تست سریع production build — مسیرها، تصاویر و API
-const BASE = "http://localhost:3000";
+// استفاده: node scripts/smoke-test.mjs [baseUrl]
+const BASE = process.argv[2] || "http://localhost:3000";
+console.log(`هدف: ${BASE}\n`);
 
 const ROUTES = [
   "/", "/services", "/courses", "/shop", "/about", "/blog", "/contact",
