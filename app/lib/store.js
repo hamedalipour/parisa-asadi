@@ -22,6 +22,11 @@ const REDIS_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN;
 const USE_REDIS = Boolean(REDIS_URL && REDIS_TOKEN);
 
 // ---------- لایهٔ Redis (Upstash REST) ----------
+//
+// نکتهٔ حیاتی: در Next.js 14 (App Router) تابع fetch به‌صورت پیش‌فرض
+// «force-cache» است؛ یعنی پاسخ Redis کش می‌شود و درخواست‌های بعدی همان
+// دادهٔ کهنه را می‌بینند. برای ذخیره‌سازی سفارش/نوبت این فاجعه است:
+// سفارش ثبت‌شده هرگز دیده نمی‌شود. بنابراین همیشه «no-store» می‌گذاریم.
 async function redisCommand(command) {
   const res = await fetch(REDIS_URL, {
     method: "POST",
@@ -30,6 +35,7 @@ async function redisCommand(command) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(command),
+    cache: "no-store",
   });
   if (!res.ok) throw new Error(`Redis ${res.status}`);
   const data = await res.json();
@@ -113,6 +119,12 @@ export async function findRecord(file, predicate) {
   return list.find(predicate) || null;
 }
 
+// تعداد رکوردهای یک فایل — برای بررسی سلامت ذخیره‌سازی
+export async function countRecords(file) {
+  const list = USE_REDIS ? await redisRead(file) : await readJson(file);
+  return Array.isArray(list) ? list.length : 0;
+}
+
 export async function updateRecord(file, predicate, patch) {
   const list = USE_REDIS ? await redisRead(file) : await readJson(file);
   const idx = list.findIndex(predicate);
@@ -133,6 +145,7 @@ export async function notifyOwner(text) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ chat_id: chatId, text }),
+      cache: "no-store",
     });
     return res.ok;
   } catch (e) {

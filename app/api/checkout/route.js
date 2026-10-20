@@ -73,6 +73,7 @@ export async function POST(req) {
         description: description,
         callback_url: `${new URL(req.url).origin}/api/checkout/callback?ref=${orderRef}&t=${encodeURIComponent(token)}`,
       }),
+      cache: "no-store",
     });
     const data = await res.json();
     const auth = data?.data?.authority;

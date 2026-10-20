@@ -108,6 +108,36 @@ gh repo create parisa-asadi --public --source=. --push
   بدون این مقادیر، سایت کار می‌کند ولی سابقهٔ سفارش‌ها ممکن است بین درخواست‌ها از بین برود.
   برای فعال‌سازی: [upstash.com](https://upstash.com) → ایجاد دیتابیس → کپی REST URL و Token.
 
+#### پیکربندی Upstash از طریق Vercel Marketplace (پیشنهادی)
+به‌جای ساخت دستی دیتابیس، از اینتگریشن رسمی Vercel استفاده کنید:
+```bash
+# ۱) نصب اینتگریشن (یک‌بار — تعهدات را در مرورگر می‌پذیرید)
+vercel integration add upstash/upstash-kv --name parisa-asadi-kv --plan free --environment production
+
+# ۲) اتصال به پروژه و ساخت دیتابیس رایگان
+vercel integration resource create upstash/upstash-kv --name parisa-asadi-kv --plan free --environment production
+```
+سپس متغیرهای زیر را **دقیقاً با همین نام‌ها** ست کنید
+(نام پیش‌فرض Marketplace پسوند اضافه دارد و کد آن را نمی‌خواند):
+```bash
+vercel env add UPSTASH_REDIS_REST_URL production
+vercel env add UPSTASH_REDIS_REST_TOKEN production
+```
+
+> ⚠️ **نکتهٔ فنی مهم:** در Next.js 14 تابع `fetch` به‌صورت پیش‌فرض `force-cache` است.
+> اگر این گزینه روی درخواست‌های Redis تنظیم نشود، پاسخ کش می‌شود و سفارش‌های
+> ثبت‌شده هرگز دیده نمی‌شوند. کد `app/lib/store.js` همیشه `cache: "no-store"` می‌گذارد —
+> اگر لایهٔ Redis را تغییر دادید، این مورد را فراموش نکنید.
+
+#### بررسی سلامت ذخیره‌سازی
+```bash
+curl https://<your-domain>/api/health
+# { "ok": true, "storage": "redis", "redis": true, "orders": 0, "bookings": 0, ... }
+```
+اگر `storage` برابر `file` باشد یعنی متغیرهای Redis ست نشده‌اند.
+تست خودکار پایداری هم در `node scripts/smoke-test.mjs` انجام می‌شود
+(ثبت نوبت ← شمارش باید یکی بیشتر شود).
+
 ---
 
 ## 🛠 ساختار پروژه
@@ -119,9 +149,10 @@ app/
   lib/orderToken.js      ← توکن امضاشدهٔ سفارش (HMAC-SHA256)
   api/checkout/          ← ثبت سفارش + درگاه زرین‌پال
   api/booking/           ← فرم نوبت‌دهی
+  api/health/            ← بررسی سلامت ذخیره‌سازی (redis یا file)
 scripts/
   optimize-images.mjs    ← فشرده‌سازی تصاویر + به‌روزرسانی ارجاع‌ها
-  smoke-test.mjs         ← تست خودکار مسیرها و APIها
+  smoke-test.mjs         ← تست خودکار مسیرها، APIها و پایداری ذخیره‌سازی
 ```
 
 ## رفع خطای رایج: `Cannot find module './xxx.js'`

@@ -24,6 +24,17 @@ for (const r of ROUTES) {
   }
 }
 
+console.log("\n=== سلامت ذخیره‌سازی ===");
+{
+  const res = await fetch(BASE + "/api/health", { headers: { "Cache-Control": "no-cache" } });
+  const j = await res.json();
+  const ok = res.status === 200 && j.ok === true && !!j.storage;
+  console.log(
+    `  ${ok ? "OK  " : "FAIL"} ${res.status} storage=${j.storage} redis=${j.redis} orders=${j.orders} bookings=${j.bookings} latency=${j.latencyMs}ms`
+  );
+  ok ? pass++ : fail++;
+}
+
 console.log("\n=== API: چک‌اوت ===");
 // ۱) محصول نامعتبر → باید ۴۰۰ بدهد
 {
@@ -60,6 +71,24 @@ console.log("\n=== API: چک‌اوت ===");
   const j = await res.json();
   const ok = res.status === 200 && j.ok === true && (j.baleUrl || j.payUrl);
   console.log(`  ${ok ? "OK  " : "FAIL"} ${res.status} محصول n1 → mode=${j.mode} ${j.error || ""}`);
+  ok ? pass++ : fail++;
+}
+
+// ۴) پایداری: دو بار ثبت نوبت متوالی → شمارش باید یکی بیشتر شود
+// (روی Vercel بدون Redis هر درخواست روی یک نمونهٔ جدید اجرا می‌شود و شمارش ثابت می‌ماند)
+{
+  const before = await (await fetch(BASE + "/api/health")).json();
+  const res = await fetch(BASE + "/api/booking", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name: "تست پایداری", phone: "09126356218", service: "تست" }),
+  });
+  const after = await (await fetch(BASE + "/api/health")).json();
+  const grew = after.bookings === before.bookings + 1;
+  const ok = res.status === 200 && grew;
+  console.log(
+    `  ${ok ? "OK  " : "FAIL"} bookings ${before.bookings} → ${after.bookings} (${grew ? "پایدار" : "ناپایدار"})`
+  );
   ok ? pass++ : fail++;
 }
 

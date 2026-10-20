@@ -50,6 +50,7 @@ export async function GET(req) {
         amount: totalToman * 10, // ریال
         authority,
       }),
+      cache: "no-store",
     });
     const data = await res.json();
     const code = data?.data?.code;
