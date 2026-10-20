@@ -1,0 +1,16 @@
+# نرمال‌سازی خط‌پایان‌ها — روی لینوکس/Vercel باید LF باشد
+* text=auto eol=lf
+
+# فایل‌های باینری (تصاویر)
+*.webp binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+
+# فایل‌های خاص که بهتر است CRLF بمانند (ویندوز)
+*.bat text eol=crlf
+*.cmd text eol=crlf
