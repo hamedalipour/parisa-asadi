@@ -113,10 +113,10 @@ export default function HomePage() {
 
       <section className="hero">
         <Image
-          src="/img/banner-asli.webp"
+          src="/img/bannerjadid.png"
           alt="بنر کلینیک فیشیال پوست پریسا اسدی — مراقبت حرفه‌ای از پوست"
-          width={1983}
-          height={793}
+          width={1254}
+          height={1254}
           priority
           style={{ width: "100%", height: "auto" }}
         />
