@@ -43,10 +43,17 @@ export default function Header({ cartCount = 0, onCartOpen }) {
 
   return (
     <>
-      <div className="topbar">
-                <span className="topbar-full">رزرو نوبت و مشاوره تخصصی پوست | تلفن: {PHONE_FA} | ارسال رایگان خرید بالای ۵۰۰ هزار تومان</span>
-        <span className="topbar-short">رزرو نوبت و مشاوره تخصصی پوست</span>
-      </div>
+      <a
+        className="topbar"
+        href={BALE_BOOKING_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="رزرو نوبت و مشاوره تخصصی پوست در بله"
+      >
+        <span className="topbar-full">
+          رزرو نوبت و مشاوره تخصصی پوست | تلفن: {PHONE_FA} | ارسال رایگان خرید بالای ۵۰۰ هزار تومان
+        </span>
+      </a>
       <header className="site-header">
         <div className="nav-wrap">
           <Link href="/" className="logo" aria-label="پریسا اسدی — صفحه اصلی" onClick={close}>
