@@ -370,7 +370,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .testimonials { grid-template-columns: 1fr; }
   .form-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 26px; }
-  .hero img { height: clamp(380px, 118vw, 660px); object-position: 50% 40%; }
+  .hero img { height: auto; object-position: 50% 40%; }
   /* بنر تا کارت «رزرو نوبت فیشیال» می‌چسبد (فاصلهٔ بالای بخش حذف) */
   .hero { display: flex; flex-direction: column; }
   .hero + .section { padding-top: 0; }

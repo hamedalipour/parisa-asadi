@@ -118,7 +118,6 @@ export default function HomePage() {
           width={1254}
           height={1254}
           priority
-          style={{ width: "100%", height: "auto" }}
         />
         <div className="hero-overlay">
           <div className="hero-top">
