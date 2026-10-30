@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
 import Reveal from "./components/Reveal";
 import JsonLd from "./components/JsonLd";
 import AddToCartButton from "./components/AddToCartButton";
@@ -99,6 +99,29 @@ const productsSchema = {
   })),
 };
 
+// بنر هیرو: نسخهٔ عریض برای دسکتاپ، نسخهٔ مربع برای موبایل (art direction)
+const HERO_ALT = "بنر کلینیک فیشیال پوست پریسا اسدی — مراقبت حرفه‌ای از پوست";
+
+const heroDesktopSrcSet = getImageProps({
+  src: "/img/banner-desktop.png",
+  width: 1672,
+  height: 941,
+  alt: HERO_ALT,
+  sizes: "100vw",
+  priority: true,
+}).props.srcSet;
+
+const {
+  props: { srcSet: heroMobileSrcSet, ...heroMobileProps },
+} = getImageProps({
+  src: "/img/bannerjadid.png",
+  width: 1254,
+  height: 1254,
+  alt: HERO_ALT,
+  sizes: "100vw",
+  priority: true,
+});
+
 export default function HomePage() {
   return (
     <>
@@ -112,13 +135,10 @@ export default function HomePage() {
       </section>
 
       <section className="hero">
-        <Image
-          src="/img/bannerjadid.png"
-          alt="بنر کلینیک فیشیال پوست پریسا اسدی — مراقبت حرفه‌ای از پوست"
-          width={1254}
-          height={1254}
-          priority
-        />
+        <picture>
+          <source media="(min-width: 769px)" srcSet={heroDesktopSrcSet} />
+          <img {...heroMobileProps} srcSet={heroMobileSrcSet} />
+        </picture>
         <div className="hero-overlay">
           <div className="hero-top">
             <h1>پوستی سالم و درخشان را با پریسا اسدی تجربه کنید</h1>
