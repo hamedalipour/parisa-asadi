@@ -110,6 +110,21 @@ a:hover { color: var(--primary); }
 .hero-cta-row { margin-top: 8px; }
 .hero-cta-consult { display: none; }
 
+/* ---------- بنر در دسکتاپ: کل عکس دیده شود، بدون بزرگ‌تر شدن کادر ---------- */
+@media (min-width: 769px) {
+  .hero { background: #b3b795 url("/img/bannerjadid-blur.webp") center / cover no-repeat; }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: -40px;
+    background: url("/img/bannerjadid-blur.webp") center / cover no-repeat;
+    filter: blur(40px) saturate(1.05);
+    z-index: 0;
+  }
+  .hero img { position: relative; z-index: 1; object-fit: contain; object-position: left center; }
+  .hero-overlay { z-index: 2; }
+}
+
 /* ---------- عنوان بخش ---------- */
 .section { padding: 72px 0; }
 .section-head { text-align: center; max-width: 720px; margin: 0 auto 48px; }
