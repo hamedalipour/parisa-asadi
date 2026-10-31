@@ -57,13 +57,16 @@ export default function Header({ cartCount = 0, onCartOpen }) {
       </a>
       <header className="site-header">
         <div className="nav-wrap">
-          <Link href="/" className="logo" aria-label="پریسا اسدی — صفحه اصلی" onClick={close}>
-            <span>
-              پریسا اسدی
-              <span className="small">پوست · زیبایی · آموزش</span>
-            </span>
-          </Link>
+          {/* چپ: رزرو نوبت + مشاوره سریع + شبکه‌های اجتماعی */}
+          <div className="nav-left">
+            <a href={BALE_BOOKING_URL} className="qc-trigger">
+              رزرو نوبت
+            </a>
+            <QuickConsult />
+            <SocialIcons className="social-desktop" />
+          </div>
 
+          {/* وسط: نویگیشن اصلی */}
           <nav className={`main-nav ${menuOpen ? "open" : ""}`} aria-label="منوی اصلی">
             <div className="drawer-blob b1" aria-hidden="true" />
             <div className="drawer-blob b2" aria-hidden="true" />
@@ -93,14 +96,14 @@ export default function Header({ cartCount = 0, onCartOpen }) {
             </div>
           </nav>
 
-          <div className="nav-cta">
-            <div className="nav-cta-desktop">
-              <a href={BALE_BOOKING_URL} className="qc-trigger">
-                رزرو نوبت
-              </a>
-              <QuickConsult />
-              <SocialIcons className="social-desktop" />
-            </div>
+          {/* راست: لوگو + سبد خرید + منو */}
+          <div className="nav-right">
+            <Link href="/" className="logo" aria-label="پریسا اسدی — صفحه اصلی" onClick={close}>
+              <span>
+                پریسا اسدی
+                <span className="small">پوست · زیبایی · آموزش</span>
+              </span>
+            </Link>
             <button className="cart-btn" onClick={onCartOpen} aria-label="مشاهده سبد خرید">
               🛒
               <span className="cart-count" style={{ display: cartCount ? "flex" : "none" }}>

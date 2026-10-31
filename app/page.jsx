@@ -108,6 +108,7 @@ const heroDesktopSrcSet = getImageProps({
   height: 941,
   alt: HERO_ALT,
   sizes: "100vw",
+  quality: 90,
   priority: true,
 }).props.srcSet;
 
@@ -119,6 +120,7 @@ const {
   height: 1254,
   alt: HERO_ALT,
   sizes: "100vw",
+  quality: 90,
   priority: true,
 });
 

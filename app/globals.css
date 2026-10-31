@@ -69,12 +69,15 @@ a:hover { color: var(--primary); }
 .topbar:focus-visible { outline: 2px solid var(--gold); outline-offset: -3px; }
 .topbar-full { display: inline; }
 .nav-wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 16px; max-width: var(--max); margin: 0 auto; }
-.logo { display: flex; align-items: center; gap: 8px; font-family: var(--font-sign); font-size: 1.7rem; color: var(--primary-dark); line-height: 1; white-space: nowrap; order: 1; }
+.nav-left { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.nav-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.logo { display: flex; align-items: center; gap: 8px; font-family: var(--font-sign); font-size: 1.7rem; color: var(--primary-dark); line-height: 1; white-space: nowrap; }
 .logo span.small { font-family: var(--font); font-size: 0.6rem; color: var(--text-soft); letter-spacing: 1px; display: block; }
-.main-nav ul { list-style: none; display: flex; gap: 0; align-items: center; flex-wrap: nowrap; }
+.main-nav { flex: 1; text-align: center; }
+.main-nav ul { list-style: none; display: flex; gap: 0; align-items: center; flex-wrap: nowrap; justify-content: center; }
 .main-nav a { padding: 7px 11px; border-radius: 40px; font-weight: 700; font-size: 0.88rem; color: var(--primary-dark); white-space: nowrap; }
 .main-nav a:hover, .main-nav a.active { background: var(--primary); color: #fff; }
-.nav-cta { display: flex; gap: 8px; align-items: center; order: 3; }
+.nav-cta { display: none; }
 .nav-cta-desktop { display: flex; gap: 8px; align-items: center; }
 .nav-drawer-cta { display: none; }
 .cart-btn { position: relative; background: #fff; border: 2px solid var(--primary-light); width: 40px; height: 40px; border-radius: 50%; font-size: 1.15rem; cursor: pointer; color: var(--primary-dark); transition: border-color 0.3s, transform 0.2s; flex-shrink: 0; }
@@ -304,6 +307,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .logo span.small { font-size: 0.52rem; letter-spacing: 0; }
 
   /* CTAهای دسکتاپ مخفی؛ فقط سبد + همبرگری در نوار بالا */
+  .nav-left { display: none; }
   .nav-cta-desktop { display: none; }
   .nav-cta { gap: 6px; }
   .cart-btn { width: 38px; height: 38px; }
