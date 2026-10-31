@@ -39,7 +39,7 @@ export default function BookingForm() {
       </p>
 
       {sent && (
-        <div className="form-msg" style={{ display: "block", background: "#e7f1e9", color: "#3c6b4a", padding: "14px", borderRadius: "12px", marginBottom: "16px" }}>
+        <div className="form-msg" style={{ display: "block", background: "var(--sage-soft)", color: "var(--sage-deep)", padding: "14px", borderRadius: "12px", marginBottom: "16px" }}>
           ✅ درخواست شما با موفقیت ثبت شد! به‌زودی با شما تماس می‌گیریم.
         </div>
       )}

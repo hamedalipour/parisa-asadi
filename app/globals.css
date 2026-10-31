@@ -10,6 +10,10 @@
   --primary-dark: #A86753;
   --primary-light: #F5CFB8;
   --gold: #AD6F52;
+  --sage: #BBC4AF;
+  --sage-soft: #DDE3D5;
+  --sage-dark: #6E7A63;
+  --sage-deep: #4A573F;
   --text: #3E312C;
   --text-soft: #7A6860;
   --white: #ffffff;
@@ -149,7 +153,7 @@ a:hover { color: var(--primary); }
 .price small { color: var(--text-soft); font-weight: 400; }
 .tag { display: inline-block; background: var(--bg-soft); color: #8F5443; padding: 4px 14px; border-radius: 30px; font-size: 0.78rem; font-weight: 700; margin-bottom: 10px; width: fit-content; }
 .tag.gold { background: #FBEADD; color: var(--gold); }
-.tag.green { background: #e7f1e9; color: #4a7d5b; }
+.tag.green { background: var(--sage-soft); color: var(--sage-deep); }
 
 /* ---------- ویژگی‌ها / آمار ---------- */
 .features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
@@ -176,7 +180,7 @@ a:hover { color: var(--primary); }
 /* ---------- نظرات / اعتماد ---------- */
 .testimonials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
 .testimonial { background: #fff; border-radius: var(--radius); padding: 30px; box-shadow: var(--shadow); position: relative; }
-.testimonial::before { content: "\201C"; font-family: var(--font-sign); font-size: 4rem; color: #EEB9A9; position: absolute; top: 6px; left: 20px; line-height: 1; }
+.testimonial::before { content: "\201C"; font-family: var(--font-sign); font-size: 4rem; color: var(--sage); position: absolute; top: 6px; left: 20px; line-height: 1; }
 .testimonial p { color: var(--text-soft); font-style: italic; position: relative; z-index: 1; }
 .testimonial .who { margin-top: 16px; font-weight: 700; color: var(--primary-dark); }
 .testimonial .who small { display: block; color: var(--text-soft); font-weight: 400; }
@@ -187,7 +191,7 @@ a:hover { color: var(--primary); }
 .about-img img { width: 100%; height: 100%; object-fit: cover; }
 .check-list { list-style: none; margin-top: 20px; }
 .check-list li { padding: 7px 0; display: flex; gap: 10px; align-items: flex-start; }
-.check-list li::before { content: "✔"; color: var(--primary); font-weight: 800; }
+.check-list li::before { content: "✔"; color: var(--sage-dark); font-weight: 800; }
 
 
 /* ---------- FAQ آکاردئون ---------- */
@@ -268,7 +272,7 @@ a:hover { color: var(--primary); }
 .breadcrumb span { margin: 0 6px; color: #C4AEA4; }
 
 /* ---------- هدر صفحات داخلی ---------- */
-.page-hero { background: linear-gradient(135deg, #EEB9A9, #FADCD2); padding: 70px 0; text-align: center; }
+.page-hero { background: linear-gradient(135deg, #F5CFB8 0%, #FADCD2 52%, #DDE3D5 100%); padding: 70px 0; text-align: center; }
 .page-hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); color: var(--text); }
 .page-hero p { color: var(--text-soft); max-width: 640px; margin: 12px auto 0; }
 
@@ -311,7 +315,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   /* شکل‌های محو تزئینی (داخل پنل) */
   .drawer-blob { display: block; position: absolute; border-radius: 50%; filter: blur(42px); opacity: 0.55; pointer-events: none; z-index: 0; }
   .drawer-blob.b1 { width: 280px; height: 280px; background: var(--primary-light); top: -70px; left: -90px; }
-  .drawer-blob.b2 { width: 320px; height: 320px; background: #F5CFB8; bottom: -120px; left: -110px; }
+  .drawer-blob.b2 { width: 320px; height: 320px; background: var(--sage); bottom: -120px; left: -110px; }
 
   /* سربرگ منو */
   .drawer-head { position: relative; z-index: 1; text-align: center; padding-bottom: 8px; }
@@ -356,7 +360,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   /* دکمهٔ فروشگاه: کیسهٔ خرید سفید بزرگ + ایستد روی گرادیان برند */
   .mb-shop { color: #fff; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); }
   .mb-shop .lbl { font-size: 0.6rem; }
-  .mb-course { color: #fff; background: linear-gradient(135deg, #D89A87, #B5745F); }
+  .mb-course { color: #fff; background: linear-gradient(135deg, #8E937D, var(--sage-deep)); }
   .mb-btn.mb-book { color: #fff; background: linear-gradient(135deg, var(--gold), #92573C); }
   .mb-btn.mb-bale { color: #fff; background: linear-gradient(135deg, var(--primary-dark), #8F5443); }
   .mb-insta { color: #fff; background: linear-gradient(135deg, #F58529, #DD2A7B, #8134AF); }
