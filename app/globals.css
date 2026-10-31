@@ -68,7 +68,7 @@ a:hover { color: var(--primary); }
 .topbar:hover, .topbar:focus { color: #fff; background: #8F5443; }
 .topbar:focus-visible { outline: 2px solid var(--gold); outline-offset: -3px; }
 .topbar-full { display: inline; }
-.nav-wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 16px; max-width: var(--max); margin: 0 auto; }
+.nav-wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 20px; width: 100%; }
 .nav-left { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .nav-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
 .logo { display: flex; align-items: center; gap: 8px; font-family: var(--font-sign); font-size: 1.7rem; color: var(--primary-dark); line-height: 1; white-space: nowrap; }
