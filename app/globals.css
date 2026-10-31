@@ -69,12 +69,12 @@ a:hover { color: var(--primary); }
 .topbar:focus-visible { outline: 2px solid var(--gold); outline-offset: -3px; }
 .topbar-full { display: inline; }
 .nav-wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 16px; max-width: var(--max); margin: 0 auto; }
-.logo { display: flex; align-items: center; gap: 8px; font-family: var(--font-sign); font-size: 1.7rem; color: var(--primary-dark); line-height: 1; white-space: nowrap; }
+.logo { display: flex; align-items: center; gap: 8px; font-family: var(--font-sign); font-size: 1.7rem; color: var(--primary-dark); line-height: 1; white-space: nowrap; order: 1; }
 .logo span.small { font-family: var(--font); font-size: 0.6rem; color: var(--text-soft); letter-spacing: 1px; display: block; }
 .main-nav ul { list-style: none; display: flex; gap: 0; align-items: center; flex-wrap: nowrap; }
 .main-nav a { padding: 7px 11px; border-radius: 40px; font-weight: 700; font-size: 0.88rem; color: var(--primary-dark); white-space: nowrap; }
 .main-nav a:hover, .main-nav a.active { background: var(--primary); color: #fff; }
-.nav-cta { display: flex; gap: 8px; align-items: center; }
+.nav-cta { display: flex; gap: 8px; align-items: center; order: 3; }
 .nav-cta-desktop { display: flex; gap: 8px; align-items: center; }
 .nav-drawer-cta { display: none; }
 .cart-btn { position: relative; background: #fff; border: 2px solid var(--primary-light); width: 40px; height: 40px; border-radius: 50%; font-size: 1.15rem; cursor: pointer; color: var(--primary-dark); transition: border-color 0.3s, transform 0.2s; flex-shrink: 0; }
@@ -109,7 +109,7 @@ a:hover { color: var(--primary); }
 .hero { position: relative; overflow: hidden; }
 .hero picture { display: contents; }
 .hero img { width: 100%; height: clamp(440px, 58vw, 860px); object-fit: cover; object-position: 50% 30%; display: block; }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to left, rgba(62,49,44,0.5), rgba(62,49,44,0.08)); display: flex; flex-direction: column; justify-content: space-between; padding: clamp(24px, 5vw, 48px) clamp(20px, 8vw, 90px) clamp(22px, 4vw, 40px); color: #fff; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to left, rgba(43,49,41,0.42), rgba(43,49,41,0.03)); display: flex; flex-direction: column; justify-content: space-between; padding: clamp(24px, 5vw, 48px) clamp(20px, 8vw, 90px) clamp(22px, 4vw, 40px); color: #fff; }
 .hero-overlay .hero-top { max-width: 620px; }
 .hero-overlay h1 { font-size: clamp(1.5rem, 3.4vw, 2.9rem); line-height: 1.3; max-width: 620px; text-shadow: 0 4px 20px rgba(0,0,0,0.4); }
 .hero-overlay p { font-size: clamp(0.95rem, 1.6vw, 1.15rem); margin: 14px 0 0; max-width: 540px; }
