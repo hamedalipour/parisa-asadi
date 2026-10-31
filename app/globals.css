@@ -295,7 +295,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 @media (max-width: 768px) {
   /* نوار بالا: متن کامل و قابل لمس (لینک بله) */
-  .topbar { font-size: 0.7rem; padding: 8px 12px; line-height: 1.9; }
+  .topbar { font-size: 0.7rem; padding: 8px 12px; line-height: 1.9; white-space: nowrap; }
+  .topbar-ship { display: none; }
 
   /* نوار ناوبری */
   .nav-wrap { gap: 8px; padding: 8px 12px; }

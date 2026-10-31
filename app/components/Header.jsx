@@ -51,7 +51,8 @@ export default function Header({ cartCount = 0, onCartOpen }) {
         aria-label="رزرو نوبت و مشاوره تخصصی پوست در بله"
       >
         <span className="topbar-full">
-          رزرو نوبت و مشاوره تخصصی پوست | تلفن: {PHONE_FA} | ارسال رایگان خرید بالای ۵۰۰ هزار تومان
+          رزرو نوبت و مشاوره تخصصی پوست | تلفن: {PHONE_FA}
+          <span className="topbar-ship"> | ارسال رایگان خرید بالای ۵۰۰ هزار تومان</span>
         </span>
       </a>
       <header className="site-header">
