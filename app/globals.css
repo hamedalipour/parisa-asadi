@@ -307,12 +307,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .logo { font-size: 1.3rem; }
   .logo span.small { font-size: 0.52rem; letter-spacing: 0; }
 
-  /* CTAهای دسکتاپ مخفی؛ فقط سبد + همبرگری در نوار بالا */
+  /* CTAهای دسکتاپ مخفی؛ لوگو راست، سبد + همبرگر چسبیده به چپ */
   .nav-left { display: none; }
-  .nav-right { flex: 0 0 auto; }
+  .nav-right { flex: 1 1 auto; }
   .nav-cta-desktop { display: none; }
   .nav-cta { gap: 6px; }
-  .cart-btn { width: 38px; height: 38px; }
+  .cart-btn { width: 38px; height: 38px; margin-inline-start: auto; }
   .hamburger { display: block; }
 
   /* منوی موبایل — پنل کشویی که از زیر خود هدر باز می‌شود */
