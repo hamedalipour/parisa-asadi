@@ -44,7 +44,7 @@ export default function BookingForm() {
         </div>
       )}
       {error && (
-        <div style={{ background: "#fdeceb", color: "#a33", padding: "12px", borderRadius: "12px", marginBottom: "16px" }}>
+        <div style={{ background: "#FBE7E1", color: "#9E4632", padding: "12px", borderRadius: "12px", marginBottom: "16px" }}>
           ⚠️ {error}
         </div>
       )}

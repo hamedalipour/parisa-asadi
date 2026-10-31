@@ -126,7 +126,7 @@ export default function CartDrawer({ open, onClose, onCountChange }) {
             {checkingOut ? "در حال انتقال به درگاه…" : "ثبت سفارش و پرداخت"}
           </button>
           {checkoutError && (
-            <p style={{ color: "#a33", fontSize: "0.85rem", marginTop: "8px", textAlign: "center" }}>
+            <p style={{ color: "#9E4632", fontSize: "0.85rem", marginTop: "8px", textAlign: "center" }}>
               {checkoutError}
             </p>
           )}
