@@ -100,10 +100,10 @@ a:hover { color: var(--primary); }
 .qc-name { font-size: 0.92rem; }
 
 /* ---------- امضای برند ---------- */
-.signature-band { text-align: center; padding: 26px 20px 20px; background: linear-gradient(180deg, var(--primary), var(--primary-dark)); }
-.signature-band .sig { font-family: var(--font-sign); font-size: clamp(2.2rem, 6vw, 3.8rem); color: #fff; line-height: 1.1; }
-.signature-band .tagline { font-size: 0.98rem; color: rgba(255,255,255,0.92); letter-spacing: 3px; margin-top: 6px; }
-.signature-band .divider { width: 80px; height: 3px; background: var(--gold); margin: 12px auto 0; border-radius: 3px; }
+.signature-band { text-align: center; padding: 18px 20px 15px; background: linear-gradient(180deg, var(--primary), var(--primary-dark)); }
+.signature-band .sig { font-family: var(--font); font-size: clamp(1.3rem, 2.8vw, 1.9rem); font-weight: 500; letter-spacing: 0.2em; text-indent: 0.2em; text-transform: uppercase; color: #fff; line-height: 1.25; }
+.signature-band .tagline { font-size: 0.86rem; color: rgba(255,255,255,0.92); letter-spacing: 2px; margin-top: 3px; }
+.signature-band .divider { width: 60px; height: 2px; background: var(--gold); margin: 9px auto 0; border-radius: 3px; }
 
 /* ---------- بنر ---------- */
 .hero { position: relative; overflow: hidden; }
@@ -388,7 +388,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .hero-cta-row { display: none; }
   .section { padding: 52px 0; }
   .section-head { margin-bottom: 34px; }
-  .signature-band { padding: 20px 16px 16px; }
+  .signature-band { padding: 14px 16px 12px; }
   .card-img { height: 200px; }
   .product-card .card-img { height: 230px; }
   .form-box { padding: 22px; }
@@ -405,7 +405,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .hero-overlay h1 { font-size: 1.32rem; line-height: 1.6; }
   .hero-overlay p { font-size: 0.86rem; line-height: 1.75; }
   .btn { padding: 11px 24px; font-size: 0.92rem; }
-  .signature-band .sig { font-size: 1.9rem; }
+  .signature-band .sig { font-size: 1.1rem; letter-spacing: 0.16em; text-indent: 0.16em; }
   .mobile-bar { gap: 5px; padding: 7px 8px calc(7px + env(safe-area-inset-bottom)); }
   .mb-btn { font-size: 0.62rem; gap: 2px; }
   .mb-btn .ico { font-size: 1.15rem; }
