@@ -57,13 +57,28 @@ export default function Header({ cartCount = 0, onCartOpen }) {
       </a>
       <header className="site-header">
         <div className="nav-wrap">
-          {/* چپ: رزرو نوبت + مشاوره سریع + شبکه‌های اجتماعی */}
-          <div className="nav-left">
-            <a href={BALE_BOOKING_URL} className="qc-trigger">
-              رزرو نوبت
-            </a>
-            <QuickConsult />
-            <SocialIcons className="social-desktop" />
+          {/* راست (شروع در RTL): لوگو + سبد خرید + منو */}
+          <div className="nav-right">
+            <Link href="/" className="logo" aria-label="پریسا اسدی — صفحه اصلی" onClick={close}>
+              <span>
+                پریسا اسدی
+                <span className="small">پوست · زیبایی · آموزش</span>
+              </span>
+            </Link>
+            <button className="cart-btn" onClick={onCartOpen} aria-label="مشاهده سبد خرید">
+              🛒
+              <span className="cart-count" style={{ display: cartCount ? "flex" : "none" }}>
+                {cartCount}
+              </span>
+            </button>
+            <button
+              className="hamburger"
+              onClick={() => setMenuOpen((v) => !v)}
+              aria-label="باز کردن منو"
+              aria-expanded={menuOpen}
+            >
+              ☰
+            </button>
           </div>
 
           {/* وسط: نویگیشن اصلی */}
@@ -96,28 +111,13 @@ export default function Header({ cartCount = 0, onCartOpen }) {
             </div>
           </nav>
 
-          {/* راست: لوگو + سبد خرید + منو */}
-          <div className="nav-right">
-            <Link href="/" className="logo" aria-label="پریسا اسدی — صفحه اصلی" onClick={close}>
-              <span>
-                پریسا اسدی
-                <span className="small">پوست · زیبایی · آموزش</span>
-              </span>
-            </Link>
-            <button className="cart-btn" onClick={onCartOpen} aria-label="مشاهده سبد خرید">
-              🛒
-              <span className="cart-count" style={{ display: cartCount ? "flex" : "none" }}>
-                {cartCount}
-              </span>
-            </button>
-            <button
-              className="hamburger"
-              onClick={() => setMenuOpen((v) => !v)}
-              aria-label="باز کردن منو"
-              aria-expanded={menuOpen}
-            >
-              ☰
-            </button>
+          {/* چپ (انتها در RTL): رزرو نوبت + مشاوره سریع + شبکه‌های اجتماعی */}
+          <div className="nav-left">
+            <a href={BALE_BOOKING_URL} className="qc-trigger">
+              رزرو نوبت
+            </a>
+            <QuickConsult />
+            <SocialIcons className="social-desktop" />
           </div>
         </div>
       </header>
